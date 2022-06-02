@@ -76,5 +76,3 @@ WHERE users.id = 100500
 
 
 
-
-

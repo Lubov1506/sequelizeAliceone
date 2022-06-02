@@ -2,7 +2,7 @@
 const {User} = require('../models');
 const _ = require('lodash');
 
-const generateTasks = () => {
+const generateTasks = async (req,res,next) => {
   const users = await User.findAll({
     attributes: ['id']
   });
