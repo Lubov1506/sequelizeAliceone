@@ -6,7 +6,11 @@ module.exports.createUser = async (req, res, next) => {
     const { body } = req;
     console.log(body);
     const createdUser = await User.create(body);
-    res.status(201).send({ data: createdUser });
+    if(!createdUser){
+      const err = createError(400, 'Bad request')
+      return next(err); 
+    }
+    res.status(201).send({ data: returnedUser });
   } catch (error) {
     next(error);
   }
